@@ -1,6 +1,4 @@
-
-angular.module('homeController', []).controller('HomeController', function($scope) {
-
-    $scope.tagline = 'Lost and Found';
-
-});
+app.controller('MainController',
+               ['$scope', function($scope) {
+                 $scope.title = "Lost and Found";
+               }]);

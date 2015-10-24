@@ -8,22 +8,22 @@
         body        { padding-top:80px; }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script src="angular/controllers/homeController.js"></script>
-    <script src="angular/appRoutes.js"></script>
-    <script src="angular/app.js"></script>
+
 </head>
-<body ng-app="lost-found" ng-controller="HomeController">
+<body ng-app>
 <div class="container">
 
-    <div class="jumbotron text-center">
-        <h1><span class="fa fa-lock"></span> {{ tagline }}</h1>
+    <div class="jumbotron text-center" ng-controller="HomeController">
+        <h1><span class="fa fa-lock"></span> {{ title }}</h1>
 
-        <p>Login or Register with:</p>
+        <p>{{ 1 + 2 }} Login or Register with:</p>
 
         <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
 
     </div>
 
 </div>
+<script src="angular/controllers/homeController.js"></script>
+<script src="angular/app.js"></script>
 </body>
 </html>

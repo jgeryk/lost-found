@@ -35,7 +35,6 @@ app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secre
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
-//SASS compiler
 // app.use(
 //      sass.middleware({
 //          src: __dirname + '/assets/stylesheets/sass',

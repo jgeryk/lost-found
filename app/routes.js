@@ -28,9 +28,11 @@ module.exports = function(app, passport) {
 	newFound.title = fields.title;
 	newFound.category = fields.category;
 	newFound.pickUpName = fields.pickUpName;
-
-	newFound.foundLocation.lat = 0;
-	newFound.foundLocation.lng = 0;
+	console.log("about to have fields");	
+	console.log(fields.lat);
+	console.log(fields.lng);
+	newFound.foundLocation.lat = fields.lat;
+	newFound.foundLocation.lng = fields.lng;
 	newFound.foundDate = new Date().getTime();
 
 	newFound.userID = req.user._id;
@@ -52,8 +54,21 @@ module.exports = function(app, passport) {
     });
 
     app.post('/lost', isLoggedIn, function(req, res) {
-	Found.find({ $text : { $search:req.body.query }});
+	Found.find({ $text : { $search : req.body.query }}, function(err, document) {
+	    console.log(document);
+	});
     });
+
+
+		app.get('/submittedFound', isLoggedIn, function(req, res){
+			res.render('submittedFound.ejs');
+		});
+
+		app.post('/submittedFound', isLoggedIn, function(req, res){
+			res.redirect('/profile');
+});
+
+		
 
     // =====================================
     // FACEBOOK ROUTES =====================

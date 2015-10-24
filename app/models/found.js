@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 
 // define the schema for our user model
 var foundSchema = mongoose.Schema({
-
     title: String,
     category: String,
     foundLocation: {
@@ -11,7 +10,8 @@ var foundSchema = mongoose.Schema({
 	lng: Number
     },
     foundDate: Date,
-    pickUpName: String
+    pickUpName: String,
+    userID: String
 });
 
 

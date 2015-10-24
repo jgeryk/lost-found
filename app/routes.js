@@ -23,6 +23,7 @@ module.exports = function(app, passport) {
 
 	var newFound = new Found();
 
+	console.log(fields);
 	newFound.title = fields.title;
 	newFound.category = fields.category;
 	newFound.pickUpName = fields.pickUpName;
@@ -31,11 +32,15 @@ module.exports = function(app, passport) {
 	newFound.foundLocation.lng = 0;
 	newFound.foundDate = new Date().getTime();
 
-	newFound.save(function (err, newFound) {
-	    if (err) return console.error(err);
-	});
+	newFound.userID = req.user._id;
+	console.log(req.user._id);
+	console.log(newFound);
 
-	res.redirect('/submitedFound');
+	newFound.save(function (err, newFound) {
+	    if (err) return res.send(err);
+
+	    res.redirect('/submittedFound');
+	});
     });
 
     // =====================================

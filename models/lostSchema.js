@@ -9,7 +9,8 @@ var lostSchema = mongoose.Schema({
 		category: String
 		lostLocation: String
 
-		lostTime: Date
+		startLostTime: Date
+		endLostTime: Date
 });
 
 

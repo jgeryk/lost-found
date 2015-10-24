@@ -7,21 +7,15 @@ var userSchema = mongoose.Schema({
     title: String
 		category: String
 		foundLocation:{
-			lat: float,
-			long: float
+			lat: Number,
+			lng: Number
 		}
 
-		foundTime:{
-			year: int,
-			month: int,			
-			day: int,
-			hour: int,
-			minute: int
-		}
+		foundTime: Date
 
 		pickUpLocation:{
-			lat: float,
-			long: float
+			lat: Number,
+			lng: Number
 		}
 
 		pickUpName: String
@@ -29,5 +23,5 @@ var userSchema = mongoose.Schema({
 
 
 // create the model for users and expose it to our app
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('foundSchema', foundSchema);
 

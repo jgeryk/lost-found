@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 // define the schema for our user model
 var foundSchema = mongoose.Schema({
-    title: { type: String, index: true},
+    title: { type: String, index: 'text'},
     category: String,
     foundLocation: {
 	lat: Number,
@@ -14,6 +14,8 @@ var foundSchema = mongoose.Schema({
     userID: String,
 		retreived: Boolean
 });
+
+foundSchema.index({title : 'index'});
 
 // create the model for users and expose it to our appo
 module.exports = mongoose.model('foundItem', foundSchema);

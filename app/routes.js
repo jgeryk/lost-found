@@ -12,7 +12,7 @@ module.exports = function(app, passport) {
             user : req.user // get the user out of session and pass to template
         });
 	Found.find({ 'userID' : req.user._id}, function(err, document) {
-	    console.log(document);
+	    // console.log(document);
 	});
     });
 
@@ -28,9 +28,9 @@ module.exports = function(app, passport) {
 	newFound.title = fields.title;
 	newFound.category = fields.category;
 	newFound.pickUpName = fields.pickUpName;
-	console.log("about to have fields");	
-	console.log(fields.lat);
-	console.log(fields.lng);
+	// console.log("about to have fields");	
+	// console.log(fields.lat);
+	// console.log(fields.lng);
 	newFound.foundLocation.lat = fields.lat;
 	newFound.foundLocation.lng = fields.lng;
 	newFound.foundDate = new Date().getTime();
@@ -48,14 +48,16 @@ module.exports = function(app, passport) {
     app.get('/lost', isLoggedIn, function(req, res) {
 	Found.find(function(err, founds) {
 	    if(err) return console.error(err);
-	    
+	    // console.log(founds);
+	    // console.log(founds[0].title);
 	    res.render('lost.ejs', {founds: founds});
 	});
     });
 
     app.post('/lost', isLoggedIn, function(req, res) {
 	Found.find({ $text : { $search : req.body.query }}, function(err, document) {
-	    console.log(document);
+	    if (err) console.log(err);
+	    else console.log(document);
 	});
     });
 

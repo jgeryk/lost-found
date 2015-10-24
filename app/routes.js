@@ -13,7 +13,7 @@ module.exports = function(app, passport) {
     });
 
     app.get('/found', isLoggedIn, function(req, res) {
-	res.render('found.ejs');
+    	res.render('found.ejs');
     });
 
     app.post('/logfound', isLoggedIn, function(req, res) {

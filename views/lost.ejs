@@ -24,10 +24,16 @@
   </head>
   <body>
     <div id="map"></div>
-		
+
     <div>
       <form id="lostSearch" method="post" action="/lost">
-        Search<input type="text" name="query"></input>
+        Search<input type="text" name="search"></input>
+        Select by:<select name="selection">
+      <option value="category">
+        Category
+      </option>
+    </input>
+
         <input type="submit"></input>
       </form>
     </div>

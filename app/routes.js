@@ -16,7 +16,7 @@ module.exports = function(app, passport) {
 	res.render('found.ejs');
     });
 
-    app.post('/found', isLoggedIn, function(req, res) {
+    app.post('/logfound', isLoggedIn, function(req, res) {
 	console.log(req.body);
     });
 

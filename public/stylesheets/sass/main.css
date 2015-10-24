@@ -26,3 +26,7 @@
   .form-found textarea.standard {
     height: 90%;
     width: 80%; }
+
+.submit-found {
+  margin: auto;
+  width: 75%; }

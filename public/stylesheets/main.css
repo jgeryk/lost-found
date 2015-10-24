@@ -3,13 +3,16 @@
   font-size: 76px;
   color: #009900;
 }
-.select-button{
-  background-color: #FFFFF0;
+/*.select-button {
+  display: inline-block;
+  background-color: #009900;
   position: relative;
   width: 30%;
   height: 80%;
-}
-.wtf {
-  font-size: 76px;
-  color: #009900;
+  padding-left: 10%;
+  font-size: 72px;
+}*/
+
+.select-button .hover {
+
 }

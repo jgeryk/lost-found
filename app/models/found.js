@@ -10,7 +10,7 @@ var foundSchema = mongoose.Schema({
 	lng: Number
     },
     foundDate: Date,
-    pickUpDetails: String,
+    pickupDetails: String,
     userID: String,
     retreived: Boolean
 });

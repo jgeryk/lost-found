@@ -10,12 +10,12 @@ var foundSchema = mongoose.Schema({
 	lng: Number
     },
     foundDate: Date,
-    pickUpName: String,
+    pickupDetails: String,
     userID: String,
-		retreived: Boolean
+    retreived: Boolean
 });
 
 foundSchema.index({title : 'index'});
 
-// create the model for users and expose it to our appo
+// create the model for users and expose it to our app
 module.exports = mongoose.model('foundItem', foundSchema);

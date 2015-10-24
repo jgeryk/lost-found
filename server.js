@@ -31,7 +31,14 @@ app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secre
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
-
+//SASS compiler
+app.use(
+     sass.middleware({
+         src: __dirname + '/assets/stylesheets/sass',
+         dest: __dirname + '/assets/stylesheets',
+         debug: true,
+     })
+  );
 // routes ======================================================================
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 

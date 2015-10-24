@@ -1,5 +1,6 @@
-module.exports = function(app, passport) {
+var Found = require('../app/models/found');
 
+module.exports = function(app, passport) {
     // route for home page
     app.get('/', function(req, res) {
         res.render('index.ejs'); // load the index.ejs file
@@ -10,6 +11,9 @@ module.exports = function(app, passport) {
         res.render('profile.ejs', {
             user : req.user // get the user out of session and pass to template
         });
+	Found.find({ 'userID' : req.user._id}, function(err, document) {
+	    console.log(document);
+	});
     });
 
     app.get('/found', isLoggedIn, function(req, res) {
@@ -19,11 +23,8 @@ module.exports = function(app, passport) {
     app.post('/logfound', isLoggedIn, function(req, res) {
 	var fields = req.body;
 
-	var Found = require('../app/models/found');
-
 	var newFound = new Found();
 
-	console.log(fields);
 	newFound.title = fields.title;
 	newFound.category = fields.category;
 	newFound.pickUpName = fields.pickUpName;
@@ -33,8 +34,6 @@ module.exports = function(app, passport) {
 	newFound.foundDate = new Date().getTime();
 
 	newFound.userID = req.user._id;
-	console.log(req.user._id);
-	console.log(newFound);
 
 	newFound.save(function (err, newFound) {
 	    if (err) return res.send(err);

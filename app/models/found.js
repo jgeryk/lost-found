@@ -15,5 +15,5 @@ var foundSchema = mongoose.Schema({
 });
 
 
-// create the model for users and expose it to our app
+// create the model for users and expose it to our appo
 module.exports = mongoose.model('foundItem', foundSchema);

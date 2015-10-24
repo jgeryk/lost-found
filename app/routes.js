@@ -53,27 +53,30 @@ module.exports = function(app, passport) {
     });
 
     app.post('/lost', isLoggedIn, function(req, res) {
-	Found.find({ $text : { $search : req.body.query }}, function(err, searchResults) {
+	Found.find({
+	    category : req.body.category,
+	    $text : { $search : req.body.search },
+	    // date range
+	    // region
+	}, function(err, searchResults) {
 	    if (err) console.log(err);
-	    else 
-			{
-				console.log(searchResults);
-				res.render('lostSearch.ejs', {searchResults: searchResults});
-			}
-			
+	    else {
+		console.log(searchResults);
+		res.render('lostSearch.ejs', {searchResults: searchResults});
+	    }		
 	});
     });
 
-		app.post('/lostSearch', isLoggedIn, function(req, res) {
-			res.redirect('/lost');
-		});
+    app.post('/lostSearch', isLoggedIn, function(req, res) {
+	res.redirect('/lost');
+    });
 
-		app.get('/submittedFound', isLoggedIn, function(req, res){
-			res.render('submittedFound.ejs');
-		});
+    app.get('/submittedFound', isLoggedIn, function(req, res){
+	res.render('submittedFound.ejs');
+    });
 
-		app.post('/submittedFound', isLoggedIn, function(req, res){
-			res.redirect('/profile');
+    app.post('/submittedFound', isLoggedIn, function(req, res){
+	res.redirect('/profile');
 });
 
 		

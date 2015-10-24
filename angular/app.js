@@ -38,8 +38,8 @@
 				position: location,
 				map: map,
 			});
-		document.getElementById('lat') = location.lat();
-		document.getElementById('lng') = location.lng();
+		document.getElementById('lat').value = location.lat();
+		document.getElementById('lng').value = location.lng();
 	}
 
 

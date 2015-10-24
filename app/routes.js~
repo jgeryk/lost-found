@@ -12,7 +12,7 @@ module.exports = function(app, passport) {
             user : req.user // get the user out of session and pass to template
         });
 	Found.find({ 'userID' : req.user._id}, function(err, document) {
-	    // console.log(document);
+	    
 	});
     });
 
@@ -28,9 +28,6 @@ module.exports = function(app, passport) {
 	newFound.title = fields.title;
 	newFound.category = fields.category;
 	newFound.pickUpName = fields.pickUpName;
-	// console.log("about to have fields");	
-	// console.log(fields.lat);
-	// console.log(fields.lng);
 	newFound.foundLocation.lat = fields.lat;
 	newFound.foundLocation.lng = fields.lng;
 	newFound.foundDate = new Date().getTime();
@@ -48,12 +45,6 @@ module.exports = function(app, passport) {
     app.get('/lost', isLoggedIn, function(req, res) {
 	Found.find(function(err, founds) {
 	    if(err) return console.error(err);
-<<<<<<< HEAD
-	    
-=======
-	    // console.log(founds);
-	    // console.log(founds[0].title);
->>>>>>> fea51b0cec3184df2abaf2a39f0ac12f8b111278
 	    res.render('lost.ejs', {founds: founds});
 	});
     });
@@ -61,10 +52,18 @@ module.exports = function(app, passport) {
     app.post('/lost', isLoggedIn, function(req, res) {
 	Found.find({ $text : { $search : req.body.query }}, function(err, document) {
 	    if (err) console.log(err);
-	    else console.log(document);
+	    else 
+			{
+				console.log(document);
+				res.render('lostSearch.ejs', {document: document});
+			}
+			
 	});
     });
 
+		app.post('/lostSearch', isLoggedIn, function(req, res) {
+			res.redirect('/lost');
+		});
 
 		app.get('/submittedFound', isLoggedIn, function(req, res){
 			res.render('submittedFound.ejs');

@@ -18,6 +18,8 @@ module.exports = function(app, passport) {
 
     app.post('/logfound', isLoggedIn, function(req, res) {
 	console.log(req.body);
+	var Found = require('../app/models/found');
+	var newFound = new Found();
     });
 
     // =====================================

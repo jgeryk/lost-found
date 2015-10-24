@@ -17,16 +17,15 @@ module.exports = function(app, passport) {
     });
 
     app.post('/logfound', isLoggedIn, function(req, res) {
-			console.log(req.body);
-			var Found = require('../app/models/found');
-			var newFound = new Found({title: req.body.title, category: req.body.category, pickUpName:req.body.pickupname});
-			newFound.foundDate = new Date().getTime();
-			
-			newFound.save(function (err, newFound) {
-  			if (err) return console.error(err);
-  			newFound.speak();
-			});
-			res.redirect('/submitedFound');
+	console.log(req.body);
+	var Found = require('../app/models/found');
+	var newFound = new Found({title: req.body.title, category: req.body.category, pickUpName:req.body.pickupname});
+	newFound.foundDate = new Date().getTime();
+
+	newFound.save(function (err, newFound) {
+	    if (err) return console.error(err);
+	});
+	res.redirect('/submitedFound');
     });
 
     // =====================================

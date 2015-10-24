@@ -11,7 +11,8 @@ var foundSchema = mongoose.Schema({
     },
     foundDate: Date,
     pickUpName: String,
-    userID: String
+    userID: String,
+		retreived: Boolean
 });
 
 foundSchema.index({title : 'index'});

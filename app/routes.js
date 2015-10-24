@@ -34,6 +34,7 @@ module.exports = function(app, passport) {
 	newFound.foundLocation.lat = fields.lat;
 	newFound.foundLocation.lng = fields.lng;
 	newFound.foundDate = new Date().getTime();
+	newFound.retreived = false;
 
 	newFound.userID = req.user._id;
 

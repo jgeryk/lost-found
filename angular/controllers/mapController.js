@@ -14,7 +14,7 @@ angular.module('mapController', ['uiGmapGoogleMapApi']).controller('MapControlle
         title: "m1",
         id: 0,
         show: false,
-        desc: "Come do this job for me I'll give you some cheese"
+        desc: "hell"
     }
 
     marker2 = {

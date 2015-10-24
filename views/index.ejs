@@ -10,6 +10,8 @@
         body        { padding-top:80px; }
     </style>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-google-maps/2.2.1/angular-google-maps.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-route.js"></script>
 
 </head>
@@ -27,7 +29,17 @@
     </div>
 
 </div>
-<script src="angular/controllers/homeController.js"></script>
+<div id="foundMap" ng-controller="MapController">
+  <ui-gmap-google-map ng-if="showMap" center="map.center" zoom="map.zoom" refresh="showMap">
+    <ui-gmap-markers models="markers"  coords="'self'" click="onClick">
+      <ui-gmap-windows show="show">
+        <div ng-non-bindable>{{desc}}</div>
+      </ui-gmap-windows>
+    </ui-gmap-markers>
+  </ui-gmap-google-map>
+</div>
 <script src="angular/app.js"></script>
+<script src="angular/controllers/mapController.js"></script>
+<script src="angular/controllers/homeController.js"></script>
 </body>
 </html>

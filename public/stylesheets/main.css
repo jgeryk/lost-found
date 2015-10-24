@@ -3,15 +3,16 @@
   font-size: 76px;
   color: #009900;
 }
-/*.select-button {
+
+.select-button {
   display: inline-block;
-  background-color: #009900;
+  background-color: $sandy;
   position: relative;
   width: 30%;
   height: 80%;
   padding-left: 10%;
   font-size: 72px;
-}*/
+}
 
 .select-button .hover {
 

@@ -7,12 +7,16 @@
     <style>
         body        { padding-top:80px; }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="angular/controllers/homeController.js"></script>
+    <script src="angular/appRoutes.js"></script>
+    <script src="angular/app.js"></script>
 </head>
-<body>
+<body ng-app="lost-found" ng-controller="HomeController">
 <div class="container">
 
     <div class="jumbotron text-center">
-        <h1><span class="fa fa-lock"></span> Node Authentication</h1>
+        <h1><span class="fa fa-lock"></span> {{ tagline }}</h1>
 
         <p>Login or Register with:</p>
 

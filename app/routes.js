@@ -42,15 +42,13 @@ module.exports = function(app, passport) {
 	});
     });
 
-		app.get('/lost', isLoggedIn, function(req, res) {
-				var Found = require('../app/models/found');
-				Found.find(function(err, founds) {
-					if(err) return console.error(err);
-					console.log(founds);
-					console.log(founds[0].title);
-					res.render('lost.ejs', {founds: founds});
-
-				});
+    app.get('/lost', isLoggedIn, function(req, res) {
+	Found.find(function(err, founds) {
+	    if(err) return console.error(err);
+	    console.log(founds);
+	    console.log(founds[0].title);
+	    res.render('lost.ejs', {founds: founds});
+	});
     });
 
     // =====================================

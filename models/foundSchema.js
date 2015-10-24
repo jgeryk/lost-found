@@ -8,14 +8,14 @@ var userSchema = mongoose.Schema({
 		category: String
 		foundLocation:{
 			lat: Number,
-			long: Number
+			lng: Number
 		}
 
 		foundTime: Date
 
 		pickUpLocation:{
 			lat: Number,
-			long: Number
+			lng: Number
 		}
 
 		pickUpName: String

@@ -9,13 +9,7 @@ var userSchema = mongoose.Schema({
 		category: String
 		lostLocation: String
 
-		lostTime:{
-			year: int,
-			month: int,			
-			day: int,
-			hour: int,
-			minute: int
-		}
+		lostTime: Date
 });
 
 

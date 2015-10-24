@@ -38,7 +38,6 @@ module.exports = function(passport) {
 
         // asynchronous
         process.nextTick(function() {
-
             // find the user in the database based on their facebook id
             User.findOne({ 'facebook.id' : profile.id }, function(err, user) {
 
@@ -55,9 +54,9 @@ module.exports = function(passport) {
                     var newUser            = new User();
 
                     // set all of the facebook information in our user model
-                    newUser.facebook.id    = profile.id; // set the users facebook id                   
-                    newUser.facebook.token = token; // we will save the token that facebook provides to the user                    
-                    newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName; // look at the passport user profile to see how names are returned
+                    newUser.facebook.id    = profile.id; // set the users facebook id
+                    newUser.facebook.token = token; // we will save the token that facebook provides to the user
+                    newUser.facebook.name  = profile.displayName; // look at the passport user profile to see how names are returned
                     // newUser.facebook.email = profile.emails[0].value; // facebook can return multiple emails so we'll take the first
 
                     // save our user to the database

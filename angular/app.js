@@ -1,8 +1,8 @@
 (function(){
   var app = angular.module('lost-found', []);
-
+	var map;
   app.controller('mapController', function(){
-
+		
     this.title = "Found Map";
     this.mapShow = true;
 
@@ -19,10 +19,22 @@
         zoom: 16,
         mapTypeId: google.maps.MapTypeId.HYBRID
       }
-      var map = new google.maps.Map(mapCanvas, mapOptions)
+      map = new google.maps.Map(mapCanvas, mapOptions);
+			google.maps.event.addListener(map, 'click', function(event) {
+    		placeMarker(event.latLng);
+			});
     }
     google.maps.event.addDomListener(window, 'load', initialize);
   });
+	function placeMarker(location) {
+		var marker = new google.maps.Marker({
+		  position: location,
+		  map: map,
+		});
+		document.getElementById('lat') = location.lat();
+		document.getElementById('lng') = location.lng();
+	}
+
 
   function Hello($scope, $http) {
     $http.get('/').

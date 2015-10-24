@@ -1,8 +1,9 @@
 // load all the things we need
+var LocalStrategy    = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 
 // load up the user model
-var User       = require('../models/userSchema');
+var User       = require('../app/models/user');
 
 // load the auth variables
 var configAuth = require('./auth');
@@ -20,8 +21,10 @@ module.exports = function(passport) {
             done(err, user);
         });
     });
-    
-    // FACEBOOK
+
+    // =========================================================================
+    // FACEBOOK ================================================================
+    // =========================================================================
     passport.use(new FacebookStrategy({
 
         // pull in our app id and secret from our auth.js file

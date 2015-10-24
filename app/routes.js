@@ -34,6 +34,7 @@ module.exports = function(app, passport) {
 	newFound.foundLocation.lat = fields.lat;
 	newFound.foundLocation.lng = fields.lng;
 	newFound.foundDate = new Date().getTime();
+	newFound.retreived = false;
 
 	newFound.userID = req.user._id;
 
@@ -47,8 +48,7 @@ module.exports = function(app, passport) {
     app.get('/lost', isLoggedIn, function(req, res) {
 	Found.find(function(err, founds) {
 	    if(err) return console.error(err);
-	    console.log(founds);
-	    console.log(founds[0].title);
+	    
 	    res.render('lost.ejs', {founds: founds});
 	});
     });

@@ -11,7 +11,8 @@ var foundSchema = mongoose.Schema({
     },
     foundDate: Date,
     pickUpName: String,
-    userID: String
+    userID: String,
+		retreived: Boolean
 });
 
 // create the model for users and expose it to our appo

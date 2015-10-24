@@ -47,14 +47,15 @@ module.exports = function(app, passport) {
     app.get('/lost', isLoggedIn, function(req, res) {
 	Found.find(function(err, founds) {
 	    if(err) return console.error(err);
-	    console.log(founds);
-	    console.log(founds[0].title);
+	    
 	    res.render('lost.ejs', {founds: founds});
 	});
     });
 
     app.post('/lost', isLoggedIn, function(req, res) {
-	Found.find({ $text : { $search:req.body.query }});
+	Found.find({ $text : { $search : req.body.query }}, function(err, document) {
+	    console.log(document);
+	});
     });
 
 
@@ -62,7 +63,7 @@ module.exports = function(app, passport) {
 			res.render('submittedFound.ejs');
 		});
 
-		app.post('/submittedFoundReturn', isLoggedIn, function(req, res){
+		app.post('/submittedFound', isLoggedIn, function(req, res){
 			res.redirect('/profile');
 });
 

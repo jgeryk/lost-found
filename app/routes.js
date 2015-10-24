@@ -57,6 +57,17 @@ module.exports = function(app, passport) {
 	Found.find({ $text : { $search:req.body.query }});
     });
 
+
+		app.get('/submittedFound', isLoggedIn, function(req, res){
+			res.render('submittedFound.ejs');
+		});
+
+		app.post('/submittedFound', isLoggedIn, function(req, res){
+			res.redirect('/profile');
+});
+
+		
+
     // =====================================
     // FACEBOOK ROUTES =====================
     // =====================================

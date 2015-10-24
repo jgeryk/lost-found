@@ -16,6 +16,9 @@
 		"passport": "latest",
     "passport-facebook": "latest",
     "passport-google-oauth": "latest",
-    "mongoose": "latest"
+    "mongoose": "latest",
+    "connect-flash": "~0.1.1",
+    "bcrypt-nodejs": "latest",
+    "express-session": "~1.0.0"
   }
 }

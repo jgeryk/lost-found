@@ -17,6 +17,8 @@ var app = express();
 // configuration
 mongoose.connect('mongodb://admin:admin@ds031531.mongolab.com:31531/lost-found');
 
+require('./config/passport')(passport); // pass passport for configuration
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

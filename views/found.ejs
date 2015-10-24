@@ -6,55 +6,35 @@
         height: 75%;
       }
     </style>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <script src="https://maps.googleapis.com/maps/api/js"></script>
-
-    <script>
-      var map;
-			var myCenter=new google.maps.LatLng(42.390921, -72.525994);
-			var marker;
-			var infowindow;
-			function initialize()
-			{
-			var mapProp = {
-				center:myCenter,
-				zoom:16,
-				mapTypeId:google.maps.MapTypeId.ROADMAP
-				};
-
-				map = new google.maps.Map(document.getElementById("map"),mapProp);
-				
-
-				google.maps.event.addListener(map, 'click', function(event) {
-					placeMarker(event.latLng);
-				});
-			}
-
-			function placeMarker(location) {
-				marker = new google.maps.Marker({
-					position: location,
-					map: map,
-				});
-				document.getElementById('lat').value = location.lat();
-				document.getElementById('lng').value = location.lng();
-			}
-
-			google.maps.event.addDomListener(window, 'load', initialize);
-			
-    </script>
 
   </head>
   <body ng-app="lost-found">
-    <div id="map"></div> 
+
 		<div>
 			<form action="/logfound" method="post">
-				<input type="text" name="title">Title</input>
-				<input type="text" name="category">Category</input>
-				<input type="text" name="pickupname">Pickup Name</input>
+				<input type="text" name="title" class="col-xs-8 form-found">Title</input>
+        <input type="text" name="title" value="42.390921, -72.525994" readonly  class="col-xs-8 form-found">Location</input>
+        <div class="map-Container" ng-controller="mapController as map">
+          {{ map.title }}
+          <div ng-show="map.mapShow" ng-click="map.toggleMap()">
+            Switch to list view
+          </div>
+          <div ng-show="!map.mapShow" ng-click="map.toggleMap()">
+            Switch to map view
+          </div>
+          <div id="map" ng-show="map.mapShow"></div>
+        </div>
+				<input type="text" name="category"  class="col-xs-8 form-found">Category</input>
+				<input type="text" name="pickupname"  class="col-xs-8 form-found">Pickup Name</input>
 				<input type="HIDDEN" name ="lat" id="lat" value="10"></input>
 				<input type="HIDDEN" name ="lng" id="lng" value="10"></input>
 				<input type="submit"></input>
 			</form>
 		</div>
+
     <div id="foundMap" ng-controller="MapController">
       <ui-gmap-google-map ng-if="showMap" center="map.center" zoom="map.zoom" refresh="showMap">
         <ui-gmap-markers models="markers"  coords="'self'" click="onClick">
@@ -64,7 +44,14 @@
         </ui-gmap-markers>
       </ui-gmap-google-map>
     </div>
-    <script src="angular/controllers/mapController.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.js"></script>
+    <!-- // <script src="angular/controllers/mapController.js"></script> -->
+    <script src="angular/controllers/foundController.js"></script>
+
     <script src="angular/app.js"></script>
+
+
   </body>
 </html>

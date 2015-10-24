@@ -1,0 +1,21 @@
+.header {
+  height: 20%; }
+
+.select-button {
+  margin: auto;
+  display: inline-block;
+  background-color: #311900;
+  position: relative;
+  height: 80%;
+  padding-top: 20%;
+  padding-left: 10%;
+  font-size: 72px; }
+
+:hover {
+  opacity: 0.7; }
+
+.lost {
+  background-color: #003300; }
+
+.form-found {
+  margin: 20px, 20px, 20px, 20px; }

@@ -1,0 +1,18 @@
+.h1 {
+  padding-left: 40%;
+  font-size: 76px;
+  color: #009900;
+}
+/*.select-button {
+  display: inline-block;
+  background-color: #009900;
+  position: relative;
+  width: 30%;
+  height: 80%;
+  padding-left: 10%;
+  font-size: 72px;
+}*/
+
+.select-button .hover {
+
+}

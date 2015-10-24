@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 
 // define the schema for our user model
-var userSchema = mongoose.Schema({
+var lostSchema = mongoose.Schema({
 
     title: String
 		description: String
@@ -14,5 +14,5 @@ var userSchema = mongoose.Schema({
 
 
 // create the model for users and expose it to our app
-module.exports = mongoose.model('lostSchema', lostSchema);
+module.exports = mongoose.model('lostItem', lostSchema);
 

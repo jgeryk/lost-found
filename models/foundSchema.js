@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 
 // define the schema for our user model
-var userSchema = mongoose.Schema({
+var foundSchema = mongoose.Schema({
 
     title: String
 		category: String
@@ -23,5 +23,5 @@ var userSchema = mongoose.Schema({
 
 
 // create the model for users and expose it to our app
-module.exports = mongoose.model('foundSchema', foundSchema);
+module.exports = mongoose.model('foundItem', foundSchema);
 

@@ -7,21 +7,15 @@ var userSchema = mongoose.Schema({
     title: String
 		category: String
 		foundLocation:{
-			lat: float,
-			long: float
+			lat: Number,
+			long: Number
 		}
 
-		foundTime:{
-			year: int,
-			month: int,			
-			day: int,
-			hour: int,
-			minute: int
-		}
+		foundTime: Date
 
 		pickUpLocation:{
-			lat: float,
-			long: float
+			lat: Number,
+			long: Number
 		}
 
 		pickUpName: String

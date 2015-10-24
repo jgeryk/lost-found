@@ -18,7 +18,7 @@
         var map = new google.maps.Map(mapCanvas, mapOptions);
       }
 
-			
+
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
@@ -27,5 +27,11 @@
 		<div>
 			  <h1><%= founds[0].title %></h1>
 		</div>
+    <div>
+      <form id="lostSearch" method="post" action="/lost">
+        Search<input type="text" name="query"></input>
+        <input type="submit"></input>
+      </form>
+    </div>
   </body>
 </html>

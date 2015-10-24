@@ -60,6 +60,17 @@ module.exports = function(app, passport) {
 	});
     });
 
+
+		app.get('/submittedFound', isLoggedIn, function(req, res){
+			res.render('submittedFound.ejs');
+		});
+
+		app.post('/submittedFound', isLoggedIn, function(req, res){
+			res.redirect('/profile');
+});
+
+		
+
     // =====================================
     // FACEBOOK ROUTES =====================
     // =====================================

@@ -12,10 +12,8 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.get('/found', function(req, res) {
-	res.render('found.ejs', {
-	    user : req.user
-	});
+    app.get('/found', isLoggedIn, function(req, res) {
+	res.render('found.ejs');
     });
 
     // =====================================

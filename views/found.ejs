@@ -6,25 +6,29 @@
         height: 75%;
       }
     </style>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <script src="https://maps.googleapis.com/maps/api/js"></script>
 
   </head>
   <body ng-app="lost-found">
-    <div class="map-Container" ng-controller="mapController as map">
-      {{ map.title }}
-      <div ng-show="map.mapShow" ng-click="map.toggleMap()">
-        Switch to list view
-      </div>
-      <div ng-show="!map.mapShow" ng-click="map.toggleMap()">
-        Switch to map view
-      </div>
-      <div id="map" ng-show="map.mapShow"></div>
-    </div>
+
 		<div>
 			<form action="/logfound" method="post">
-				<input type="text" name="title">Title</input>
-				<input type="text" name="category">Category</input>
-				<input type="text" name="pickupname">Pickup Name</input>
+				<input type="text" name="title" class="col-xs-8 form-found">Title</input>
+        <input type="text" name="title" value="42.390921, -72.525994" readonly  class="col-xs-8 form-found">Location</input>
+        <div class="map-Container" ng-controller="mapController as map">
+          {{ map.title }}
+          <div ng-show="map.mapShow" ng-click="map.toggleMap()">
+            Switch to list view
+          </div>
+          <div ng-show="!map.mapShow" ng-click="map.toggleMap()">
+            Switch to map view
+          </div>
+          <div id="map" ng-show="map.mapShow"></div>
+        </div>
+				<input type="text" name="category"  class="col-xs-8 form-found">Category</input>
+				<input type="text" name="pickupname"  class="col-xs-8 form-found">Pickup Name</input>
 				<input type="HIDDEN" name ="lat" id="lat" value="10"></input>
 				<input type="HIDDEN" name ="lng" id="lng" value="10"></input>
 				<input type="submit"></input>

@@ -52,7 +52,7 @@ module.exports = function(app, passport) {
     });
 
     app.post('/lost', isLoggedIn, function(req, res) {
-	Found.find({$text:{$search:req.body.query}});
+	Found.find({ $text : { $search:req.body.query }});
     });
 
     // =====================================

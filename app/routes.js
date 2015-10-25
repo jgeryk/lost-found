@@ -54,7 +54,7 @@ module.exports = function(app, passport) {
 	var query = {};
 	query.$query={};
 	
-	if (!isNullOrWhitespace(req.body.category) || !(isNullOrWhitespace(req.body.beginDate) && isNullOrWhitespace(req.body.endDate)) ||
+	if ((!isNullOrWhitespace(req.body.category) && req.body.category !== "All") || !(isNullOrWhitespace(req.body.beginDate) && isNullOrWhitespace(req.body.endDate)) ||
 	    !req.body.showRetrieve || !isNullOrWhitespace(req.body.search))
 	    query.$query.$and=[];
 
@@ -63,7 +63,7 @@ module.exports = function(app, passport) {
 	    searchjson.$text = { $search : req.body.search };
 	    query.$query.$and.push(searchjson);
 	}
-	if (!isNullOrWhitespace(req.body.category) || req.body.category !== "All") {
+	if (!isNullOrWhitespace(req.body.category) && req.body.category !== "All") {
 	    var categoryjson = {};
 	    categoryjson.category = req.body.category;
 	    query.$query.$and.push(categoryjson);
@@ -77,9 +77,9 @@ module.exports = function(app, passport) {
 	    daterangejson.$let = endDate;
 	    query.$query.$and.push(daterange);
 	}
-	if (!req.body.showRetrieved) {
-	    var retrievedjson;
-	    retrievedjson.retrieved = "false";
+	if (!req.body.showRetrieve) {
+	    var retrievedjson = {};
+	    retrievedjson.retrieved = false;
 	    query.$query.$and.push(retrievedjson);
 	}
 	

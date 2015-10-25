@@ -8,7 +8,7 @@
 					<th>Category</th>
 					<th>Date</th>
 					<th>Pickup</th>
-					<th>Retreived</th>
+					<th>retrieved</th>
 				</tr>
 				<% for(var i=0; i<searchResults.length; i++) {%>
 				<tr>
@@ -16,7 +16,7 @@
 					<td><%= searchResults[i].category %></td>
 					<td><%= new Date(searchResults[i].foundDate).toDateString() %> </td>
 					<td><%= searchResults[i].pickupDetails %></td>
-					<td><%= searchResults[i].retreived %></td>
+					<td><%= searchResults[i].retrieved %></td>
 				</tr>
 			<% } %>
 

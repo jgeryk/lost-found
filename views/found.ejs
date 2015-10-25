@@ -3,7 +3,7 @@
     <style>
       #map {
         margin: auto;
-        width: 95%;
+        width: 80%;
         height: 75%;
       }
     </style>
@@ -16,8 +16,13 @@
 
 
   </head>
-  <body ng-app="lost-found">
+  <div class="header col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <h1 style="display: inline-block">retrievr</h1>
+  <p class="names">Jacob Geryk Karl Schmeckpeper Nathan Greenberg</p>
+  </div>
 
+  <body ng-app="lost-found">
+    <h1 class="text-center">Submit A Found Item</h1>
 		<div>
 			<form action="/logfound" method="post" id="foundform">
 				<input type="text" name="title" class="col-xs-8 form-found" placeholder="Title" maxlength="50"></input>

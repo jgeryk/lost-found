@@ -37,7 +37,7 @@
 					var date = new Date(founds[k].foundDate);
 
 
-					if(!founds[k].retreived && Date.now()-date.getTime()<1000*60*60*24*21)
+					if(!founds[k].retrieved && Date.now()-date.getTime()<1000*60*60*24*21)
 					{
 						markers[k] = new google.maps.Marker({
 							position: new google.maps.LatLng(founds[k].foundLocation.lat, founds[k].foundLocation.lng),

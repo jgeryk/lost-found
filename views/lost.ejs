@@ -46,7 +46,7 @@
 						});
 
 						infoWindows[k] = new google.maps.InfoWindow({
-							content: 'Title: '+founds[k].title +'<br>Category: '+founds[k].category +'<br>Date: '+founds[k].foundDate+'<br>Pick Up: '+founds[k].pickupDetails
+							content: 'Title: '+founds[k].title +'<br>Category: '+founds[k].category +'<br>Date: '+date.toDateString()+'<br>Pick Up: '+founds[k].pickupDetails
 						});
 						
 						registerEvent(k);
@@ -62,7 +62,6 @@
   </head>
   <body>
     <div id="map"></div>
-
     <div>
       <form id="lostSearch" method="post" action="/lost">
         Search<input type="text" name="search"></input>

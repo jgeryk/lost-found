@@ -3,7 +3,7 @@
     <style>
       #map {
         margin: auto;
-        width: 94%;
+        width: 95%;
         height: 75%;
       }
     </style>
@@ -19,14 +19,14 @@
   <body ng-app="lost-found">
 
 		<div>
-			<form action="/logfound" method="post">
-				<input type="text" name="title" class="col-xs-8 form-found" placeholder="Title" maxlength="25"></input>
+			<form action="/logfound" method="post" id="foundform">
+				<input type="text" name="title" class="col-xs-8 form-found" placeholder="Title" maxlength="50"></input>
         <div class="map-Container" ng-controller="mapController as map">
 
         <!-- <input type="text" name="title" value="{{ map.currentLatitude }}, {{ map.currentLongitude }}" class="col-xs-8 form-found" placeholder="Location" readonly ng-click="map.toggleMap()"></input> -->
           <!-- {{ map.title }} -->
 
-        	<a href="#found-map"><input type="text" id="found-map" name="coords" value="42.390921, -72.525994" class="col-xs-8 form-found" placeholder="Location" readonly ng-click="map.toggleMap()" maxlength="50"></input></a>
+        	<a href="#found-map"><input type="text" id="found-map" name="coords" value="42.390921, -72.525994" class="col-xs-12 col-lg-8 form-found" placeholder="Location" readonly ng-click="map.toggleMap()" maxlength="50"></input></a>
           <!-- {{ map.title }} -->
           <!-- <div ng-show="map.mapShow" ng-click="map.toggleMap()">
             Switch to list view
@@ -44,7 +44,7 @@
 			    <option>Other</option>
 
       </select>
-			<input type="text" name="pickupDetails"  class="col-xs-8 form-found" placeholder="Pickup Details" maxlength="50"></input>
+			<input type="text" name="pickupDetails"  class="col-xs-8 form-found" placeholder="Pickup Details" maxlength="100"></input>
 				<input type="HIDDEN" name ="lat" id="lat" value="10"></input>
 				<input type="HIDDEN" name ="lng" id="lng" value="10"></input>
 				<input type="submit" class="btn submit-found col-xs-12 col-lg-8 col-lg-offset-2"></input>

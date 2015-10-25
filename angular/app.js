@@ -10,16 +10,21 @@
     this.title = "Found Map";
     self.currentLatitude =  2131;
     self.currentLongitude = 23423;
-    this.mapShow = false;
+    this.mapShow = true;
     function printCoords(){
       console.log(currentLatitude);
       console.log(currentLongitude);
     }
-    this.toggleMap = function(){
-      console.log('oooooh');
+    function reloadMap(){
+      google.maps.event.trigger(map, 'resize');
+    };
+
+    this.toggleMap = function(callback){
       this.mapShow = !this.mapShow;
       console.log(this.mapShow);
+      // google.maps.event.trigger(map, 'resize');
     }
+
     function getLoc(position, initialize) {
       self.currentLatitude = position.coords.latitude;
       self.currentLongitude = position.coords.longitude;

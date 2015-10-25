@@ -28,9 +28,7 @@ module.exports = function(app, passport) {
 	newFound.title = fields.title;
 	newFound.category = fields.category;
 	newFound.pickupDetails = fields.pickupDetails;
-	// console.log("about to have fields");	
-	// console.log(fields.lat);
-	// console.log(fields.lng);
+	
 	newFound.foundLocation.lat = fields.lat;
 	newFound.foundLocation.lng = fields.lng;
 	newFound.foundDate = new Date().getTime();

@@ -1,13 +1,37 @@
+<!doctype html>
 <html>
-  <header>
-    <title>Retrievr</title>    
-  </header>
-  <body ng-app="lost-found"> 
-		<div>
-			<h1>Thank you for reporting the item</h1>
+<head>
+    <title>Retrievr</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="public/stylesheets/sass/main.css">
+
+    <style>
+        body        { padding-top:80px; }
+    </style>
+
+</head>
+
+<body ng-app="lost-found">
+
+<div class="container">
+    <div class="text-center">
+        <h1><span class="fa">Thank you for reporting the item</span></h1>
 			<form action="/submittedFound" method="post">
 				<input type="submit" value="Continue"></input>
 			</form>
-		</div>
-  </body>
+        
+      </div>
+</div>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.min.js"></script>
+<script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-google-maps/2.2.1/angular-google-maps.js"></script>s
+<script src="angular/app.js"></script>
+<script src="angular/controllers/mapController.js"></script>
+<script src="angular/controllers/homeController.js"></script> -->
+</body>
 </html>
+

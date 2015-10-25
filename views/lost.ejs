@@ -2,8 +2,9 @@
   <head>
     <style>
       #map {
-        width: 100%;
-        height: 75%;
+        width: 95%;
+        height: 70%;
+        margin: auto;
       }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
@@ -61,10 +62,16 @@
     <link rel="stylesheet" type="text/css" href="public/stylesheets/sass/main.css">
   </head>
   <body>
+    <div class="header col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h1 style="display: inline-block">Retrievr</h1>
+    <p class="names"></p>
+    </div>
+
+    <h1 class="text-center">Found Items</h1>
     <div id="map"></div>
     <div>
-      <form id="lostSearch" method="post" action="/lost">
-        Search<input type="text" name="search"></input>
+      <form id="lostSearch" method="post" action="/lost" class="text-center">
+        <input type="text" name="search" placeholder="Search.." class="searchQuery"></input>
         <select name="category" placeholder="Category">
           <option>
             All
@@ -83,7 +90,7 @@
     </select> -->
     </input>
 
-        <input type="submit" value="Search" c></input>
+        <input type="submit" value="Search" ></input>
       </form>
     </div>
   </body>

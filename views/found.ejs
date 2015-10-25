@@ -25,7 +25,7 @@
     <h1 class="text-center">Submit A Found Item</h1>
 		<div>
 			<form action="/logfound" method="post" id="foundform">
-				<input type="text" name="title" class="col-xs-8 form-found" placeholder="Title" maxlength="50"></input>
+				<input type="text" name="title" class="col-xs-12 form-found" placeholder="Title" maxlength="50"></input>
         <div class="map-Container" ng-controller="mapController as map">
 
         <!-- <input type="text" name="title" value="{{ map.currentLatitude }}, {{ map.currentLongitude }}" class="col-xs-8 form-found" placeholder="Location" readonly ng-click="map.toggleMap()"></input> -->
@@ -39,9 +39,9 @@
           <div ng-show="!map.mapShow" ng-click="map.toggleMap()">
             Switch to map view
           </div> -->
-          <div id="map" ng-show="map.mapShow"></div>
+          <div id="map" ng-show="map.mapShow" class="col-xs-12"></div>
         </div>
-			  <select name="category"  class="col-xs-8 form-found" placeholder="Category">
+			  <select name="category"  class="col-xs-12 form-found" placeholder="Category">
 			    <option>Wallet/UCard</option>
 			    <option>Tech</option>
 			    <option>Clothing</option>
@@ -49,10 +49,10 @@
 			    <option>Other</option>
 
       </select>
-			<input type="text" name="pickupDetails"  class="col-xs-8 form-found" placeholder="Pickup Details" maxlength="100"></input>
+			<input type="text" name="pickupDetails"  class="col-xs-12 form-found" placeholder="Pickup Details" maxlength="100"></input>
 			<input type="HIDDEN" name ="lat" id="lat" value="10"></input>
 			<input type="HIDDEN" name ="lng" id="lng" value="10"></input>
-			<input type="submit" class="btn submit-found col-xs-12 col-lg-8 col-lg-offset-2"></input>
+			<input type="submit" class="btn submit-found col-xs-8 col-lg-8 col-lg-offset-2 col-xs-offset-2"></input>
 			</form>
 		</div>
     <!-- <div class="footer text-center">

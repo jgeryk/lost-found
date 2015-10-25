@@ -53,15 +53,35 @@ module.exports = function(app, passport) {
     });
 
     app.post('/lost', isLoggedIn, function(req, res) {
-	Found.find({
-	    category : req.body.category,
-	    $text : { $search : req.body.search },
-	    // date range
-	    // region
-	}, function(err, searchResults) {
+	var query = {};
+	query.$query={};
+	
+	if (!isNullOrWhitespace(req.body.category) || !(isNullOrWhitespace(req.body.beginDate) && isNullOrWhitespace(req.body.endDate)))
+	    query.$query.$and=[];
+
+	if (!isNullOrWhitespace(req.body.category)){
+	    var json = {};
+	    json.category = req.body.category;
+	    console.log(json);
+	    console.log(query);
+	    query.$query.$and.push(json);
+	    console.log(query);
+	}
+	if (!isNullOrWhitespace(req.body.beginDate) && !isNullOrWhitespace(req.body.endDate)) {
+	    var beginDate = req.body.beginDate.setHours(0, 0, 0, 0);
+	    var endDate = req.body.endDate.setHours(24, 0, 0, 0);
+
+	    query.$query.$and.push({$gte : beginDate, $lte : endDate});
+	}
+	
+	query.$orderby=[];
+	query.$orderby.push({ foundDate : -1 });
+
+	console.log(query);
+
+	Found.find(query, function(err, searchResults) {
 	    if (err) console.log(err);
 	    else {
-		console.log(searchResults);
 		res.render('lostSearch.ejs', {searchResults: searchResults});
 	    }		
 	});
@@ -111,4 +131,9 @@ function isLoggedIn(req, res, next) {
 
     // if they aren't redirect them to the home page
     res.redirect('/');
+}
+
+function isNullOrWhitespace(input) {
+    if (typeof input === 'undefined' || input === null) return true;
+    return input.replace(/\s/g, '').length < 1;
 }

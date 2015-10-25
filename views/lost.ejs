@@ -28,10 +28,10 @@
           mapTypeId: google.maps.MapTypeId.HYBRID
         }
         map = new google.maps.Map(mapCanvas, mapOptions);
-				
+
 				var founds = <%- JSON.stringify(founds) %>;
 				console.log(founds);
-				
+
 				for(var k = 0; k<founds.length; k++)
 				{
 					var date = new Date(founds[k].foundDate);
@@ -53,9 +53,9 @@
 					}
 				}
       }
-			
 
-			
+
+
 
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>

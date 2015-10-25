@@ -10,7 +10,7 @@
     this.title = "Found Map";
     self.currentLatitude =  2131;
     self.currentLongitude = 23423;
-    this.mapShow = true;
+    this.mapShow = false;
     function printCoords(){
       console.log(currentLatitude);
       console.log(currentLongitude);

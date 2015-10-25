@@ -15,6 +15,3 @@ function checkFoundForm(){
       $("input[name='pickupDetails']").after("<p class='error'>Please enter more descriptive pickup details.</p>");
     }
   }
-
-
-}

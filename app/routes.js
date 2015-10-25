@@ -57,7 +57,7 @@ module.exports = function(app, passport) {
 	if (!isNullOrWhitespace(req.body.category) || !(isNullOrWhitespace(req.body.beginDate) && isNullOrWhitespace(req.body.endDate)))
 	    query.$query.$and=[];
 
-	if (!isNullOrWhitespace(req.body.category)){
+	if (!isNullOrWhitespace(req.body.category)) {
 	    var categoryjson = {};
 	    categoryjson.category = req.body.category;
 	    query.$query.$and.push(categoryjson);
@@ -70,6 +70,13 @@ module.exports = function(app, passport) {
 	    daterangejson.$gte = beginDate;
 	    daterangejson.$let = endDate;
 	    query.$query.$and.push(daterange);
+	}
+
+	// if (!req.body.showRetrieved) {
+	if (false) {
+	    var retrievedjson;
+	    retrievedjson.retrieved = "false";
+	    query.$query.$and.push(retrievedjson);
 	}
 	
 	query.$orderby=[];

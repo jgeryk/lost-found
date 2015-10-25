@@ -55,17 +55,15 @@ module.exports = function(app, passport) {
 	query.$query={};
 	
 	if (!isNullOrWhitespace(req.body.category) || !(isNullOrWhitespace(req.body.beginDate) && isNullOrWhitespace(req.body.endDate)) ||
-	    // !req.body.showRetrieve || !isNullOrWhitespace(req.body.search)){
-	    !isNullOrWhitespace(req.body.search)){
+	    !req.body.showRetrieve || !isNullOrWhitespace(req.body.search))
 	    query.$query.$and=[];
-	}
 
 	if (!isNullOrWhitespace(req.body.search)) {
 	    var searchjson = {};
 	    searchjson.$text = { $search : req.body.search };
 	    query.$query.$and.push(searchjson);
 	}
-	if (!isNullOrWhitespace(req.body.category)) {
+	if (!isNullOrWhitespace(req.body.category) || req.body.category !== "All") {
 	    var categoryjson = {};
 	    categoryjson.category = req.body.category;
 	    query.$query.$and.push(categoryjson);
@@ -79,8 +77,7 @@ module.exports = function(app, passport) {
 	    daterangejson.$let = endDate;
 	    query.$query.$and.push(daterange);
 	}
-	// if (!req.body.showRetrieved) {
-	if (false) {
+	if (!req.body.showRetrieved) {
 	    var retrievedjson;
 	    retrievedjson.retrieved = "false";
 	    query.$query.$and.push(retrievedjson);

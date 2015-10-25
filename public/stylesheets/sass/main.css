@@ -30,6 +30,7 @@
   font-size: 72px; }
   .select-button .profile-button-container {
     height: 100%;
+    width: 96%;
     padding-top: 25%;
     position: relative;
     margin: auto; }

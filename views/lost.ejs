@@ -9,6 +9,8 @@
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script type = "text/javascript">
 			var map;
+			var markers = new Array();
+			var infoWindows = new Array();
 			function initialize() {
         var mapCanvas = document.getElementById('map');
         var mapOptions = {
@@ -24,14 +26,25 @@
 				for(var k = 0; k<founds.length; k++)
 				{
 					var date = new Date(founds[k].foundDate);
-					console.log(date.getTime());
-					if(Date.now()-date.getTime()<1000*60*60*24*21)
+					
+
+					if(!founds[k].retreived && Date.now()-date.getTime()<1000*60*60*24*21)
 					{
-						var marker = new google.maps.Marker({
+						markers[k] = new google.maps.Marker({
 							position: new google.maps.LatLng(founds[k].foundLocation.lat, founds[k].foundLocation.lng),
 							map: map,
 							title: founds[k].title
 						});
+
+						infoWindows[k] = new google.maps.InfoWindow({
+							content: 'Title: '+founds[k].title +'<br>Category: '+founds[k].category +'<br>Date: '+founds[k].foundDate+'<br>Pick Up: '+founds[k].pickupDetails
+						});
+						
+						google.maps.event.addListener(markers[k],'click',function() {
+							console.log(k);
+							console.log(typeof(infoWindows));
+  						infoWindows[k].open(map,markers[k]);
+  					});
 					}
 				}
       }

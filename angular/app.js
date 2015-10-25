@@ -54,6 +54,7 @@
         self.currentLongitude = location.lng();
         console.log(self.currentLatitude);
         console.log(self.currentLongitude);
+        document.getElementById('found-map').value = location.lat() + ", " + location.lng();
         document.getElementById('lat').value = location.lat();
         document.getElementById('lng').value = location.lng();
       }
@@ -62,8 +63,6 @@
 
     }
 
-    // console.log(lat);
-    // console.log(lng);
     navigator.geolocation.getCurrentPosition(getLoc);
 
     // function initialize() {

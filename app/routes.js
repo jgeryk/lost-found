@@ -55,8 +55,10 @@ module.exports = function(app, passport) {
 	query.$query={};
 	
 	if (!isNullOrWhitespace(req.body.category) || !(isNullOrWhitespace(req.body.beginDate) && isNullOrWhitespace(req.body.endDate)) ||
-	    !req.body.showRetrieved || !isNullOrWhitespace(req.body.search))
+	    // !req.body.showRetrieve || !isNullOrWhitespace(req.body.search)){
+	    !isNullOrWhitespace(req.body.search)){
 	    query.$query.$and=[];
+	}
 
 	if (!isNullOrWhitespace(req.body.search)) {
 	    var searchjson = {};

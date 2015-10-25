@@ -1,31 +1,54 @@
 @import 'colors';
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+
 .header{
-  height: 20%;
+  height: 10%;
+}
+.names{
+  font-size: 20px;
+  display: inline-block;
+  float: right;
 }
 .select-button {
-  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  white-space:nowrap;
+  top:0px;
+  position:relative;
+  border:none;
+  background:none;
+  font-family: 'Roboto', sans-serif;
+  cursor:pointer;
+  transition:0.1s all ease;
+  font-weight: 300;
+  border-bottom: 1px solid #ccc;
+  box-shadow:0px 0px 0px 0px #B8B8B8;
+  border-radius: 5%;
   display: inline-block;
-  background-color: $brown;
   position: relative;
-  // width: 30%;
   height: 80%;
-  padding-top: 20%;
-  padding-left: 10%;
   font-size: 72px;
+  .profile-button-container{
+    height: 100%;
+    padding-top: 25%;
+    position: relative;
+    margin: auto;
+  }
 } &:hover {
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .lost{
-  background-color: $lfGreen;
+
 }
+
 
 .form-found{
   height: 15%;
-  width: 94%;
+  width: 95%;
   margin-top: 2%;
-  margin-left: 3%;
-  margin-right: 3%;
+  margin-left: 2%;
+  margin-right: 2%;
   textarea.standard {
     height:90%;
     width: 80%;

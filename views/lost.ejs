@@ -11,6 +11,15 @@
 			var map;
 			var markers = new Array();
 			var infoWindows = new Array();
+
+			function registerEvent(i){
+				google.maps.event.addListener(markers[i],'click',function() {
+  						infoWindows[i].open(map,markers[i]);
+  					});
+			};
+
+
+
 			function initialize() {
         var mapCanvas = document.getElementById('map');
         var mapOptions = {
@@ -40,11 +49,7 @@
 							content: 'Title: '+founds[k].title +'<br>Category: '+founds[k].category +'<br>Date: '+founds[k].foundDate+'<br>Pick Up: '+founds[k].pickupDetails
 						});
 						
-						google.maps.event.addListener(markers[k],'click',function() {
-							console.log(k);
-							console.log(typeof(infoWindows));
-  						infoWindows[k].open(map,markers[k]);
-  					});
+						registerEvent(k);
 					}
 				}
       }

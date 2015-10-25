@@ -1,10 +1,15 @@
 $(document).ready(function(){
-  console.log("sdafsdf");
+  mapClicked = false;
+  $("#map").click(function(){
+    mapClicked = true;
+  });
   $(".submit-found").click(function(e){
 
     $(".error").remove();
-    console.log($("input[name='title']").val());
-
+    if(!mapClicked){
+      $('#map').before("<p class='error'>Please specify a location on the map!</p>")
+      e.preventDefault();
+    }
     if($("input[name='title']").val().length<3){
       e.preventDefault();
       $("input[name='title']").after("<p class='error'>Please enter a more descriptive title.</p>");

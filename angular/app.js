@@ -37,9 +37,12 @@
         }
         map = new google.maps.Map(mapCanvas, mapOptions);
         marker = new google.maps.Marker({
-      				position: new google.maps.LatLng(42.390921, -72.525994),
+      				position: new google.maps.LatLng(0, 0),
       				map: map,
       			});
+				document.getElementById('found-map').value = 0 + ", " + 0;
+        document.getElementById('lat').value = 0;
+        document.getElementById('lng').value = 0;
         google.maps.event.addListener(map, 'click', function(event) {
           placeMarker(event.latLng);
         });

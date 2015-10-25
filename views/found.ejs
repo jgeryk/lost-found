@@ -19,8 +19,8 @@
   <body ng-app="lost-found">
 
 		<div>
-			<form method="post">
-				<input type="text" name="title" class="col-xs-8 form-found" placeholder="Title"></input>
+			<form action="/logfound" method="post">
+				<input type="text" name="title" class="col-xs-8 form-found" placeholder="Title" maxlength="25"></input>
         <div class="map-Container" ng-controller="mapController as map">
 
         <!-- <input type="text" name="title" value="{{ map.currentLatitude }}, {{ map.currentLongitude }}" class="col-xs-8 form-found" placeholder="Location" readonly ng-click="map.toggleMap()"></input> -->
@@ -44,7 +44,7 @@
 			    <option>Other</option>
 
       </select>
-			<input type="text" name="pickupDetails"  class="col-xs-8 form-found" placeholder="Pickup Details"></input>
+			<input type="text" name="pickupDetails"  class="col-xs-8 form-found" placeholder="Pickup Details" maxlength="50"></input>
 				<input type="HIDDEN" name ="lat" id="lat" value="10"></input>
 				<input type="HIDDEN" name ="lng" id="lng" value="10"></input>
 				<input type="submit" class="btn submit-found col-xs-12 col-lg-8 col-lg-offset-2"></input>

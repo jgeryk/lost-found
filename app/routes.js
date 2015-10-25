@@ -58,24 +58,22 @@ module.exports = function(app, passport) {
 	    query.$query.$and=[];
 
 	if (!isNullOrWhitespace(req.body.category)){
-	    var json = {};
-	    json.category = req.body.category;
-	    console.log(json);
-	    console.log(query);
-	    query.$query.$and.push(json);
-	    console.log(query);
+	    var categoryjson = {};
+	    categoryjson.category = req.body.category;
+	    query.$query.$and.push(categoryjson);
 	}
 	if (!isNullOrWhitespace(req.body.beginDate) && !isNullOrWhitespace(req.body.endDate)) {
 	    var beginDate = req.body.beginDate.setHours(0, 0, 0, 0);
 	    var endDate = req.body.endDate.setHours(24, 0, 0, 0);
 
-	    query.$query.$and.push({$gte : beginDate, $lte : endDate});
+	    var daterangejson = {};
+	    daterangejson.$gte = beginDate;
+	    daterangejson.$let = endDate;
+	    query.$query.$and.push(daterange);
 	}
 	
 	query.$orderby=[];
 	query.$orderby.push({ foundDate : -1 });
-
-	console.log(query);
 
 	Found.find(query, function(err, searchResults) {
 	    if (err) console.log(err);

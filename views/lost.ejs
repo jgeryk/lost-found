@@ -35,7 +35,7 @@
 				for(var k = 0; k<founds.length; k++)
 				{
 					var date = new Date(founds[k].foundDate);
-					
+
 
 					if(!founds[k].retreived && Date.now()-date.getTime()<1000*60*60*24*21)
 					{
@@ -48,7 +48,7 @@
 						infoWindows[k] = new google.maps.InfoWindow({
 							content: 'Title: '+founds[k].title +'<br>Category: '+founds[k].category +'<br>Date: '+date.toDateString()+'<br>Pick Up: '+founds[k].pickupDetails
 						});
-						
+
 						registerEvent(k);
 					}
 				}
@@ -59,13 +59,26 @@
 
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="public/stylesheets/sass/main.css">
   </head>
   <body>
     <div id="map"></div>
     <div>
       <form id="lostSearch" method="post" action="/lost">
         Search<input type="text" name="search"></input>
-        Select by:<input type="text" name="category"></input>
+        <select name="category" placeholder="Category">
+          <option>
+            All
+          </option>
+          <option>Wallet/UCard</option>
+          <option>Tech</option>
+          <option>Clothing</option>
+          <option>Backpack</option>
+          <option>Other</option>
+      </select>
+      <input type="checkbox" name="showRetrieve" class="btn btn-default">Show All</checkbox>
         <!-- <select name="selection">
       <option value="category">
         Category
@@ -73,7 +86,7 @@
     </select> -->
     </input>
 
-        <input type="submit" value="Search"></input>
+        <input type="submit" value="Search" c></input>
       </form>
     </div>
   </body>

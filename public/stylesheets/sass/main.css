@@ -5,7 +5,9 @@
 .names {
   font-size: 20px;
   display: inline-block;
-  float: right; }
+  float: right;
+  position: relative;
+  margin-top: 2%; }
 
 .select-button {
   text-align: center;
@@ -31,9 +33,8 @@
     padding-top: 25%;
     position: relative;
     margin: auto; }
-
-:hover {
-  opacity: 0.5; }
+  .select-button:hover {
+    opacity: 0.5; }
 
 .form-found {
   height: 15%;
@@ -48,3 +49,6 @@
 .submit-found {
   margin-top: 3%;
   height: 10%; }
+
+.fb-btn {
+  height: 45%; }

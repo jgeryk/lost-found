@@ -4,7 +4,7 @@
     <title>Retreivr</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="public/stylesheets/main.css">
+    <link rel="stylesheet" type="text/css" href="public/stylesheets/sass/main.css">
 
     <style>
         body        { padding-top:80px; }
@@ -15,27 +15,26 @@
 <body ng-app="lost-found">
 
 <div class="container">
-    <div class="jumbotron text-center">
-        <h1><span class="fa fa-lock"></span></h1>
+    <div class="text-center">
+        <h1><span class="fa">Retreivr</span></h1>
 
         <p>Login with:</p>
 
-        <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+        <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook fb-btn"></span> Facebook</a>
 
-    </div>
-
+      </div>
 </div>
 <div id="foundMap" ng-controller="MapController">
   <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
 
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.min.js"></script>
 <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-google-maps/2.2.1/angular-google-maps.js"></script>s
 <script src="angular/app.js"></script>
 <script src="angular/controllers/mapController.js"></script>
-<script src="angular/controllers/homeController.js"></script>
+<script src="angular/controllers/homeController.js"></script> -->
 </body>
 </html>

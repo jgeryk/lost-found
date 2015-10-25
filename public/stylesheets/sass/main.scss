@@ -8,6 +8,8 @@
   font-size: 20px;
   display: inline-block;
   float: right;
+  position: relative;
+  margin-top: 2%;
 }
 .select-button {
   text-align: center;
@@ -34,10 +36,11 @@
     position: relative;
     margin: auto;
   }
-} &:hover {
-  opacity: 0.5;
-}
+  &:hover {
+    opacity: 0.5;
+  }
 
+}
 .lost{
 
 }
@@ -58,4 +61,8 @@
 .submit-found{
   margin-top: 3%;
   height: 10%;
+}
+
+.fb-btn{
+  height:45%;
 }

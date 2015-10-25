@@ -49,8 +49,8 @@
         self.currentLongitude = location.lng();
         console.log(self.currentLatitude);
         console.log(self.currentLongitude);
-        document.getElementById('lat') = location.lat();
-        document.getElementById('lng') = location.lng();
+        document.getElementById('lat').value = location.lat();
+        document.getElementById('lng').value = location.lng();
       }
 
       google.maps.event.addDomListener(window, 'load', initialize);

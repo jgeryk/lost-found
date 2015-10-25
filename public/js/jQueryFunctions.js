@@ -7,8 +7,8 @@ $(document).ready(function(){
 
     $(".error").remove();
     if(!mapClicked){
-      $('#map').before("<p class='error'>Please specify a location on the map!</p>")
       e.preventDefault();
+      $('#map').before("<p class='error'>Please specify a location on the map!</p>")
     }
     if($("input[name='title']").val().length<3){
       e.preventDefault();

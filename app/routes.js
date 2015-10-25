@@ -28,9 +28,7 @@ module.exports = function(app, passport) {
 	newFound.title = fields.title;
 	newFound.category = fields.category;
 	newFound.pickupDetails = fields.pickupDetails;
-	// console.log("about to have fields");	
-	// console.log(fields.lat);
-	// console.log(fields.lng);
+	
 	newFound.foundLocation.lat = fields.lat;
 	newFound.foundLocation.lng = fields.lng;
 	newFound.foundDate = new Date().getTime();
@@ -53,15 +51,33 @@ module.exports = function(app, passport) {
     });
 
     app.post('/lost', isLoggedIn, function(req, res) {
-	Found.find({
-	    category : req.body.category,
-	    $text : { $search : req.body.search },
-	    // date range
-	    // region
-	}, function(err, searchResults) {
+	var query = {};
+	query.$query={};
+	
+	if (!isNullOrWhitespace(req.body.category) || !(isNullOrWhitespace(req.body.beginDate) && isNullOrWhitespace(req.body.endDate)))
+	    query.$query.$and=[];
+
+	if (!isNullOrWhitespace(req.body.category)){
+	    var categoryjson = {};
+	    categoryjson.category = req.body.category;
+	    query.$query.$and.push(categoryjson);
+	}
+	if (!isNullOrWhitespace(req.body.beginDate) && !isNullOrWhitespace(req.body.endDate)) {
+	    var beginDate = req.body.beginDate.setHours(0, 0, 0, 0);
+	    var endDate = req.body.endDate.setHours(24, 0, 0, 0);
+
+	    var daterangejson = {};
+	    daterangejson.$gte = beginDate;
+	    daterangejson.$let = endDate;
+	    query.$query.$and.push(daterange);
+	}
+	
+	query.$orderby=[];
+	query.$orderby.push({ foundDate : -1 });
+
+	Found.find(query, function(err, searchResults) {
 	    if (err) console.log(err);
 	    else {
-		console.log(searchResults);
 		res.render('lostSearch.ejs', {searchResults: searchResults});
 	    }		
 	});
@@ -111,4 +127,9 @@ function isLoggedIn(req, res, next) {
 
     // if they aren't redirect them to the home page
     res.redirect('/');
+}
+
+function isNullOrWhitespace(input) {
+    if (typeof input === 'undefined' || input === null) return true;
+    return input.replace(/\s/g, '').length < 1;
 }

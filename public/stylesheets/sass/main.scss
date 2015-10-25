@@ -61,7 +61,8 @@
 }
 
 .submit-found{
-  margin-top: 3%;
+  margin-top: 1%;
+  margin-bottom: 2%;
   height: 10%;
 }
 
@@ -72,4 +73,10 @@
   text-align: center;
   margin: auto;
   color: #ff330e;
+}
+
+.footer{
+  font-size: 8px;
+  font-style: italic;
+  color: $grey;
 }

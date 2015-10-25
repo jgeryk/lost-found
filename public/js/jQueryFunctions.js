@@ -10,7 +10,7 @@ $(document).ready(function(){
       e.preventDefault();
       $('#map').before("<p class='error'>Please specify a location on the map!</p>")
     }
-    if($("input[name='title']").val().length<3){
+    else if($("input[name='title']").val().length<3){
       e.preventDefault();
       $("input[name='title']").after("<p class='error'>Please enter a more descriptive title.</p>");
     }

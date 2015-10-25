@@ -9,6 +9,17 @@
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script type = "text/javascript">
 			var map;
+			var markers = new Array();
+			var infoWindows = new Array();
+
+			function registerEvent(i){
+				google.maps.event.addListener(markers[i],'click',function() {
+  						infoWindows[i].open(map,markers[i]);
+  					});
+			};
+
+
+
 			function initialize() {
         var mapCanvas = document.getElementById('map');
         var mapOptions = {
@@ -23,11 +34,23 @@
 
 				for(var k = 0; k<founds.length; k++)
 				{
-					var marker = new google.maps.Marker({
-						position: new google.maps.LatLng(founds[k].foundLocation.lat, founds[k].foundLocation.lng),
-						map: map,
-						title: founds[k].title
-					});
+					var date = new Date(founds[k].foundDate);
+					
+
+					if(!founds[k].retreived && Date.now()-date.getTime()<1000*60*60*24*21)
+					{
+						markers[k] = new google.maps.Marker({
+							position: new google.maps.LatLng(founds[k].foundLocation.lat, founds[k].foundLocation.lng),
+							map: map,
+							title: founds[k].title
+						});
+
+						infoWindows[k] = new google.maps.InfoWindow({
+							content: 'Title: '+founds[k].title +'<br>Category: '+founds[k].category +'<br>Date: '+date.toDateString()+'<br>Pick Up: '+founds[k].pickupDetails
+						});
+						
+						registerEvent(k);
+					}
 				}
       }
 
@@ -39,7 +62,6 @@
   </head>
   <body>
     <div id="map"></div>
-
     <div>
       <form id="lostSearch" method="post" action="/lost">
         Search<input type="text" name="search"></input>

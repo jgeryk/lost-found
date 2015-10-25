@@ -43,6 +43,19 @@ module.exports = function(app, passport) {
 	});
     });
 
+    app.put('/found/:id', isLoggedIn, function(req, res) {
+	Found.findById(req.params.id, function(err, foundItem) {
+	    if (err) res.send(err);
+
+	    foundItem.retrieved = true;
+
+	    foundItem.save(function(err) {
+		if (err) res.send(err);
+		res.json({ message: 'Item updated' });
+	    });
+	});
+    });
+
     app.get('/lost', isLoggedIn, function(req, res) {
 	Found.find(function(err, founds) {
 	    if(err) return console.error(err);

@@ -21,15 +21,17 @@
 
 
 				function initialize() {
+					var founds = <%- JSON.stringify(searchResults) %>;
+
 		      var mapCanvas = document.getElementById('map');
 		      var mapOptions = {
-		        center: new google.maps.LatLng(42.390921, -72.525994),
+		        center: new google.maps.LatLng(founds[0].foundLocation.lat, founds[0].foundLocation.lng),
 		        zoom: 16,
 		        mapTypeId: google.maps.MapTypeId.HYBRID
 		      }
 		      map = new google.maps.Map(mapCanvas, mapOptions);
 
-					var founds = <%- JSON.stringify(searchResults) %>;
+					
 					console.log(founds);
 
 					for(var k = 0; k<founds.length; k++)

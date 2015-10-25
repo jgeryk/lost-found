@@ -2,11 +2,31 @@
   <body ng-app="lost-found"> 
 		<div>
 			<h1>Search Results</h1>
-			<ul>
-			<% for(var i=0; i<searchResults.length; i++) {%>
-				 <li><%= searchResults[i].title %>  Category: <%= searchResults[i].category %>  Date: <%= searchResults[i].foundDate %>   Lat: <%= searchResults[i].foundLocation.lat %>   Lng: <%= searchResults[i].foundLocation.lng %>   Pickup: <%= searchResults[i].pickupDetails %>  Retreived: <%= searchResults[i].retreived %></li>
+			 <table style="width:100%">
+				<tr>
+					<th>Title</th>
+					<th>Category</th>
+					<th>Date</th>
+					<th>Pickup</th>
+					<th>Retreived</th>
+				</tr>
+				<% for(var i=0; i<searchResults.length; i++) {%>
+				<tr>
+					<td><%= searchResults[i].title %></td>
+					<td><%= searchResults[i].category %></td>
+					<td><%= new Date(searchResults[i].foundDate).toDateString() %> </td>
+					<td><%= searchResults[i].pickupDetails %></td>
+					<td><%= searchResults[i].retreived %></td>
+				</tr>
 			<% } %>
-			</ul>
+
+			</table> 
+
+
+
+			
+			
+			
 
 			<form action="/lostSearch" method="post">
 				<input type="submit"></input>

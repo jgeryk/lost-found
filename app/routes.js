@@ -3,12 +3,14 @@ var Found = require('../app/models/found');
 module.exports = function(app, passport) {
     // route for home page
     app.get('/', function(req, res) {
-        res.render('index.ejs'); // load the index.ejs file
+	if (req.isAuthenticated())
+	    res.render('main.ejs');
+	else
+            res.render('login.ejs'); // load the index.ejs file
     });
 
-    // route for showing the profile page
-    app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', {
+    app.get('/main', isLoggedIn, function(req, res) {
+        res.render('main.ejs', {
             user : req.user // get the user out of session and pass to template
         });
 	Found.find({ 'userID' : req.user._id}, function(err, document) {
@@ -116,7 +118,7 @@ module.exports = function(app, passport) {
     });
 
     app.post('/submittedFound', isLoggedIn, function(req, res){
-	res.redirect('/profile');
+	res.redirect('/main');
 });
 
 
@@ -131,7 +133,7 @@ module.exports = function(app, passport) {
     // the callback after google has authenticated the user
     app.get('/auth/google/callback',
             passport.authenticate('google', {
-                    successRedirect : '/profile',
+                    successRedirect : '/main',
                     failureRedirect : '/'
             }));
 
@@ -144,7 +146,7 @@ module.exports = function(app, passport) {
     // handle the callback after facebook has authenticated the user
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
-            successRedirect : '/profile',
+            successRedirect : '/main',
             failureRedirect : '/'
         }));
 
